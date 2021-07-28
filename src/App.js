@@ -92,75 +92,6 @@ class Pads extends React.Component{
 
 // ******************************* Pad 1**********************************************
 
-// class Pad1 extends React.Component {
-
-//   render() {
-//     return (
-//       <ReactCursorPosition className = "pad1"
-//        activationInteractionMouse={INTERACTIONS.CLICK}
-//       >
-//         {/* <ImageComponent /> */}
-//         <PositionLabel1 />
-//       </ReactCursorPosition>
-      
-//     );
-//   }
-// }
-
-
-// const PositionLabel1 = (props) => {
-//   const {
-//     detectedEnvironment: {
-//       isMouseDetected = false,
-//       isTouchDetected = false
-//     } = {},
-//     elementDimensions: {
-//       width = 300,
-//       height = 300
-//     } = {},
-//     isActive = false,
-//     isPositionOutside = false,
-//     position: {
-//       x = 0,
-//       y = 0
-//     } = {}
-//   } = props;
-
-//   if(isActive == true){    
-//     metric1 = x;
-//     metric2 = y;
-//   };
-
-//   return (
-//     <div className="pad1__label">
-//       <ImageBackground source = {pad_image_1} style={{width: '100%', height: '194%'}}>
-//         <UpdateGenMedia/>
-//         <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
-//         <svg >
-//           <circle cx={metric1-10} cy={metric2-10} r="10" fill = 'red'/>
-//         </svg>
-//       </ImageBackground>
-//       <Pad1ActiveIndicator isActive = {isActive}/>
-//     </div>
-//   );
-// };
-
-// function Pad1ActiveIndicator(props){
-
-//   if (props.isActive == true){
-//     var active_text = 'On';
-//     var text_color = 'green';
-//   }
-//   else{
-//     var active_text = 'Off';
-//     var text_color = 'red';
-//   }
-
-//   return(
-//   <h1 className = 'pad1_active_indicator' style = {{color: text_color}}> Click on the Pad to Active: {active_text} </h1>
-//   );
-// }
-
 function Pad1(props) {
 
   const pad1_style = {top: (350 * props.current_height / original_page_height) + 'px', 
@@ -199,8 +130,8 @@ const PositionLabel1 = (props) => {
   } = props;
 
   if(isActive == true){
-    metric1 = x / props.current_width * original_page_width;
-    metric2 = y / props.current_width * original_page_width;
+    metric1 = Math.floor(x / props.current_width * original_page_width);
+    metric2 = Math.floor(y / props.current_width * original_page_width);
   };
 
   const pad1_background_image_style = {height: (289 * props.current_width / original_page_width) + 'px', 
@@ -223,11 +154,11 @@ const PositionLabel1 = (props) => {
 
 function Pad1ActiveIndicator(props){
   if (props.isActive == true){
-    var active_text = 'On';
+    var active_text = 'Click on the Pad to Freeze: On';
     var text_color = 'green';
   }
   else{
-    var active_text = 'Off';
+    var active_text = 'Click on the Pad to Active: Off';
     var text_color = 'red';
   }
 
@@ -239,7 +170,7 @@ function Pad1ActiveIndicator(props){
                                       }
 
   return(
-    <h1 className = 'pad1_active_indicator' style = {pad1_active_indicator_style}> Click on the Pad to Active: {active_text} </h1>
+    <h1 className = 'pad1_active_indicator' style = {pad1_active_indicator_style}> {active_text} </h1>
   );
 }
 
@@ -286,8 +217,8 @@ const PositionLabel2 = (props) => {
   } = props;
 
   if(isActive == true){
-    metric3 = x / props.current_width * original_page_width;
-    metric4 = y / props.current_width * original_page_width;
+    metric3 = Math.floor(x / props.current_width * original_page_width);
+    metric4 = Math.floor(y / props.current_width * original_page_width);
   };
 
   const pad2_background_image_style = {height: (289 * props.current_width / original_page_width) + 'px', 
@@ -310,11 +241,11 @@ const PositionLabel2 = (props) => {
 
 function Pad2ActiveIndicator(props){
   if (props.isActive == true){
-    var active_text = 'On';
+    var active_text = 'Click on the Pad to Freeze: On';
     var text_color = 'green';
   }
   else{
-    var active_text = 'Off';
+    var active_text = 'Click on the Pad to Active: Off';
     var text_color = 'red';
   }
 
@@ -326,7 +257,7 @@ function Pad2ActiveIndicator(props){
                                       }
 
   return(
-    <h1 className = 'pad2_active_indicator' style = {pad2_active_indicator_style}> Click on the Pad to Active: {active_text} </h1>
+    <h1 className = 'pad2_active_indicator' style = {pad2_active_indicator_style}>  {active_text} </h1>
   );
 }
 
@@ -511,10 +442,13 @@ function Audio_Player_Generated(props){
 
 function UpdateGenMedia(props){
 
-  var metric1_quantized = Math.floor(metric1 / 30); 
-  var metric2_quantized = Math.floor(metric2 / 30); 
-  var metric3_quantized = Math.floor(metric3 / 30); 
-  var metric4_quantized = Math.floor(metric4 / 30); 
+  var metric1_quantized = Math.floor(metric1 / 30) + 1; 
+  var metric2_quantized = Math.floor(metric2 / 30) + 1; 
+  var metric3_quantized = Math.floor(metric3 / 30) + 1; 
+  var metric4_quantized = Math.floor(metric4 / 30) + 1; 
+
+  metric2_quantized = 10 - metric2_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
+  metric4_quantized = 10 - metric4_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
 
   var gen_pianoroll_file_name = "midi_" + metric1_quantized + "_" + metric2_quantized + "_" + metric3_quantized + "_" + metric4_quantized +".png";
 
@@ -578,7 +512,7 @@ class CreateContact extends React.Component {
         <TextInput current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
         <TextOutputVariations current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
 
-        {/* <ImageComponentArchitecture name = {image_architecture} current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/> */}
+        <ImageComponentArchitecture name = {image_architecture} current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
 
       </div>
     );
@@ -597,5 +531,6 @@ function App() {
 }
 
 export default App;
+
 
 
