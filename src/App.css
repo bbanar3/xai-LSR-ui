@@ -21,6 +21,14 @@
   font: 16px/1.5 Helvetica, Arial;
 } */
 
+.pad1_active_indicator {
+  position: fixed;
+  top: 300px;
+  left: 615px;
+  font: 18px/1.5 Helvetica, Arial;
+  font-weight: bold;
+}
+
 .pad2 {
   position: fixed;
   top: 350px;
@@ -44,10 +52,18 @@
   font: 16px/1.5 Helvetica, Arial;
 } */
 
+.pad2_active_indicator {
+  position: fixed;
+  top: 300px;
+  left: 1015px;
+  font: 18px/1.5 Helvetica, Arial;
+  font-weight: bold;
+}
+
 .audio_player_source {
   position: fixed;
-  top: 600px;
-  left: 100px;
+  /* top: 600px;
+  left: 100px; */
 }
 
 .audio_player_generated {
@@ -154,24 +170,28 @@
 
 .image_source_music {
   position: fixed;
-  top: 370px;
-  left: -20px;
+  /* top: 370px;
+  left: -20px; */
 }
 
 .image_generated_music {
   position: fixed;
-  top: 370px;
-  left: 1350px;
+  /* top: 370px;
+  left: 1350px; */
 }
 
 .text_input {
   position: fixed;
-  top: 200px;
+  /* top: 200px;
   left: 200px;
+  font: 32px Helvetica, Arial; */
+  /* font-weight: bold; */
 }
 
 .text_output_variations {
   position: fixed;
-  top: 200px;
+  /* top: 200px;
   left: 1500px;
+  font: 32px Helvetica, Arial; */
+  /* font-weight: bold; */
 }
