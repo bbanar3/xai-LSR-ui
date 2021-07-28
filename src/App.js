@@ -179,7 +179,7 @@ function Pad2(props) {
   const pad2_style = {top: (350 * props.current_height / original_page_height) + 'px', 
                       left:(1000 * props.current_width / original_page_width) + 'px',
                       width: (300 * props.current_width / original_page_width) + 'px',
-                      height: (300 * props.current_height / original_page_height) + 'px',
+                      height: (300 * props.current_width / original_page_width) + 'px',
                       }
 
   return (
@@ -212,12 +212,12 @@ const PositionLabel2 = (props) => {
   } = props;
 
   if(isActive == true){
-    metric3 = x;
-    metric4 = y;
+    metric3 = x / props.current_width * original_page_width;
+    metric4 = y / props.current_width * original_page_width;
   };
 
-  const pad2_background_image_style = {height: (290 * props.current_height / original_page_height) + 'px', 
-                                      width:(290 * props.current_width / original_page_width) + 'px',
+  const pad2_background_image_style = {height: (289 * props.current_width / original_page_width) + 'px', 
+                                      width:(289 * props.current_width / original_page_width) + 'px',
                                       }
 
   return (
@@ -226,7 +226,7 @@ const PositionLabel2 = (props) => {
         <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
         <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
         <svg >
-          <circle cx={metric3 - 10 * props.current_width / original_page_width} cy={metric4 - 10 * props.current_height / original_page_height} r={10 * props.current_width / original_page_width} fill = 'red'/>
+          <circle cx={metric3 - 10 * props.current_width / original_page_width} cy={metric4 - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
       </ImageBackground>
       <Pad2ActiveIndicator isActive = {isActive} current_height = {props.current_height} current_width = {props.current_width}/>
@@ -431,7 +431,7 @@ function ImageComponentGeneratedMusic(props){
 
 function Audio_Player_Generated(props){
   const audio_player_generated_style = {top: (600 * props.current_height / original_page_height) + 'px', 
-                                    left:(1500 * props.current_width / original_page_width) + 'px',
+                                    left:(1430 * props.current_width / original_page_width) + 'px',
                                     width: (400 * props.current_width / original_page_width) + 'px',
                                     height: (50 * props.current_width / original_page_width) + 'px'}
   return (
@@ -532,4 +532,5 @@ function App() {
 }
 
 export default App;
+
 
