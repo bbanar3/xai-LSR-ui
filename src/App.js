@@ -5,7 +5,7 @@ import pad_image_1 from "./color_2d_plot1.png";
 import pad_image_2 from "./color_2d_plot2.png";
 import image_architecture from "./figure_with_LSR.png";
 import ReactAudioPlayer from 'react-audio-player';
-import { ImageBackground, TextPropTypes} from "react-native";
+import { ImageBackground, Text, TextPropTypes} from "react-native";
 import { useState, useEffect } from 'react';
 
 
@@ -33,8 +33,7 @@ function TextTitle(props){
 
   const text_title_style = {top: (20 * props.current_height / original_page_height) + 'px', 
                             left:(20 * props.current_width / original_page_width) + 'px',
-                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (32 * props.current_width / original_page_width) + 'px',
                             }
 
   return (
@@ -47,8 +46,7 @@ function TextLatentValuesLabel(props){
 
   const text_latent_values_label_style = {top: (720 * props.current_height / original_page_height) + 'px', 
                                           left:(400 * props.current_width / original_page_width) + 'px',
-                                          font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
-                                          fontWeight: 'bold',
+                                          fontSize: (32 * props.current_width / original_page_width) + 'px',
                                           }
 
   return (
@@ -65,8 +63,11 @@ function DisplayMetric1(props){
                             fontWeight: 'bold',
                             }
 
+  var metric1_quantized = Math.floor(metric1 / 30) + 1;
+  var metric1_latent_values = [3,4,5,6,7,8,9,10,11,12];
+
   return (
-      <h1 className = 'display_metric1' style = {display_metric_1_style}> Rhy Complx:  {props.m1}</h1>
+      <h1 className = 'display_metric1' style = {display_metric_1_style}> Rhy Complx:  {metric1_latent_values[metric1_quantized - 1]}</h1>
   );
 };
 
@@ -76,8 +77,14 @@ function DisplayMetric2(props){
                             font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
                             fontWeight: 'bold',
                             }
+
+  var metric2_quantized = Math.floor(metric2 / 30) + 1; 
+  
+  metric2_quantized = 11 - metric2_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
+  var metric2_latent_values = [3,4,5,6,7,8,9,10,11,12];
+
   return (
-      <h1 className = 'display_metric2' style = {display_metric_2_style}> Note Range:  {props.m2}</h1>
+      <h1 className = 'display_metric2' style = {display_metric_2_style}> Note Range:  {metric2_latent_values[metric2_quantized - 1]}</h1>
   );
 };
 
@@ -87,8 +94,12 @@ function DisplayMetric3(props){
                             font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
                             fontWeight: 'bold',
                             }
+
+  var metric3_quantized = Math.floor(metric3 / 30) + 1; 
+  var metric3_latent_values = [3,4,5,6,7,8,9,10,11,12];
+  
   return (
-      <h1 className = 'display_metric3' style = {display_metric_3_style}> Note Density:  {props.m3}</h1>
+      <h1 className = 'display_metric3' style = {display_metric_3_style}> Note Density:  {metric3_latent_values[metric3_quantized - 1]}</h1>
   );
 };
 
@@ -98,8 +109,16 @@ function DisplayMetric4(props){
                             font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
                             fontWeight: 'bold',
                             }
+
+  
+  var metric4_quantized = Math.floor(metric4 / 30) + 1;
+  
+  metric4_quantized = 11 - metric4_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
+
+  var metric4_latent_values = [3,4,5,6,7,8,9,10,11,12];
+
   return (
-      <h1 className = 'display_metric4' style = {display_metric_4_style}> Avg Pitch Interval:  {props.m4}</h1>
+      <h1 className = 'display_metric4' style = {display_metric_4_style}> Avg Pitch Interval:  {metric4_latent_values[metric4_quantized - 1]}</h1>
   );
 };
 
@@ -107,8 +126,7 @@ function TextInput(props){
 
   const text_input_style = {top: (250 * props.current_height / original_page_height) + 'px', 
                             left:(185 * props.current_width / original_page_width) + 'px',
-                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (32 * props.current_width / original_page_width) + 'px',
                             }
 
   return (
@@ -121,8 +139,7 @@ function TextOutputVariations(props){
 
   const text_output_style = {top: (250 * props.current_height / original_page_height) + 'px', 
                             left:(1425 * props.current_width / original_page_width) + 'px',
-                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (32 * props.current_width / original_page_width) + 'px',
                             }
 
   return (
@@ -153,9 +170,21 @@ function TextReference(props){
                             }
 
   return (
-      <h1 className = 'text_reference' style = {text_reference_style}> Augmented: Pati, Ashis and Lerch, Alexander. (2019). Latent Space Regularization for Explicit Control of Musical Attributes.  </h1>  
+      <h1 className = 'text_reference' style = {text_reference_style}> Augmentation of Pati, Ashis and Lerch, Alexander. (2019). Latent Space Regularization for Explicit Control of Musical Attributes.  </h1>  
   );
+};
 
+function TextSignature(props){
+
+  const text_signature_style = {top: (865 * props.current_height / original_page_height) + 'px', 
+                            left:(1720 * props.current_width / original_page_width) + 'px',
+                            font: (18 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+
+  return (
+      <h1 className = 'text_signature' style = {text_signature_style}> Berker Banar, 2021.  </h1>  
+  );
 };
 
 // ******************************* Pads **********************************************
@@ -225,8 +254,8 @@ const PositionLabel1 = (props) => {
     <div className="pad1__label">
       <ImageBackground source = {pad_image_1} style={pad1_background_image_style}>
         <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
-        <DisplayMetric1 m1 = {metric1} current_height = {props.current_height} current_width = {props.current_width}/>
-        <DisplayMetric2 m2 = {metric2} current_height = {props.current_height} current_width = {props.current_width}/>
+        <DisplayMetric1 current_height = {props.current_height} current_width = {props.current_width}/>
+        <DisplayMetric2 current_height = {props.current_height} current_width = {props.current_width}/>
         <svg >
           <circle cx={metric1 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} cy={metric2 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
@@ -248,8 +277,7 @@ function Pad1ActiveIndicator(props){
 
   const pad1_active_indicator_style = {top: (300 * props.current_height / original_page_height) + 'px', 
                                       left:(615 * props.current_width / original_page_width) + 'px',
-                                      font: (18 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
-                                      fontWeight: 'bold',
+                                      fontSize: (18 * props.current_width / original_page_width) + 'px',
                                       color: text_color,
                                       }
 
@@ -313,8 +341,8 @@ const PositionLabel2 = (props) => {
     <div className="pad2__label">
       <ImageBackground source = {pad_image_2} style={pad2_background_image_style}>
         <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
-        <DisplayMetric3 m3 = {metric3} current_height = {props.current_height} current_width = {props.current_width}/>
-        <DisplayMetric4 m4 = {metric4} current_height = {props.current_height} current_width = {props.current_width}/>
+        <DisplayMetric3 current_height = {props.current_height} current_width = {props.current_width}/>
+        <DisplayMetric4 current_height = {props.current_height} current_width = {props.current_width}/>
         <svg >
           <circle cx={metric3 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} cy={metric4 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
@@ -336,8 +364,7 @@ function Pad2ActiveIndicator(props){
 
   const pad2_active_indicator_style = {top: (300 * props.current_height / original_page_height) + 'px', 
                                       left:(1015 * props.current_width / original_page_width) + 'px',
-                                      font: (18 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
-                                      fontWeight: 'bold',
+                                      fontSize: (18 * props.current_width / original_page_width) + 'px',
                                       color: text_color,
                                       }
 
@@ -353,8 +380,7 @@ function Pad2ActiveIndicator(props){
 function X1_label(props) {
   const x1_label_style = {top: (645 * props.current_height / original_page_height) + 'px', 
                             left:(640 * props.current_width / original_page_width) + 'px',
-                            font: (16 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (16 * props.current_width / original_page_width) + 'px',
                             }
 
 
@@ -366,8 +392,7 @@ function X1_label(props) {
 function Y1_label(props) {
   const y1_label_style = {top: (475 * props.current_height / original_page_height) + 'px', 
                             left:(480 * props.current_width / original_page_width) + 'px',
-                            font: (16 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (16 * props.current_width / original_page_width) + 'px',
                             }
 
   return (
@@ -379,8 +404,7 @@ function Y1_label(props) {
 function X2_label(props) {
   const x2_label_style = {top: (645 * props.current_height / original_page_height) + 'px', 
                             left:(1060 * props.current_width / original_page_width) + 'px',
-                            font: (16 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (16 * props.current_width / original_page_width) + 'px',
                             }
   
   return (
@@ -391,8 +415,7 @@ function X2_label(props) {
 function Y2_label(props){
   const y2_label_style = {top: (475 * props.current_height / original_page_height) + 'px', 
                             left:(860 * props.current_width / original_page_width) + 'px',
-                            font: (16 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
-                            fontWeight: 'bold',
+                            fontSize: (16 * props.current_width / original_page_width) + 'px',
                             }
   
   return (
@@ -407,7 +430,7 @@ function Pad1_X0(props) {
                             fontWeight: 'bold',
                             }
   return (
-    <h1 className = 'pad1_x0' style = {pad1_x0_style} >0</h1>
+    <h1 className = 'pad1_x0' style = {pad1_x0_style} >1</h1>
   );
 }
 
@@ -440,7 +463,7 @@ function Pad2_X0(props) {
                             fontWeight: 'bold',
                             }
   return (
-    <h1 className = 'pad2_x0' style = {pad2_x0_style}>0</h1>
+    <h1 className = 'pad2_x0' style = {pad2_x0_style}>1</h1>
   );
 }
 
@@ -532,8 +555,8 @@ function UpdateGenMedia(props){
   var metric3_quantized = Math.floor(metric3 / 30) + 1; 
   var metric4_quantized = Math.floor(metric4 / 30) + 1; 
 
-  metric2_quantized = 10 - metric2_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
-  metric4_quantized = 10 - metric4_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
+  metric2_quantized = 11 - metric2_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
+  metric4_quantized = 11 - metric4_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
 
   var gen_pianoroll_file_name = "midi_" + metric1_quantized + "_" + metric2_quantized + "_" + metric3_quantized + "_" + metric4_quantized +".png";
 
@@ -603,6 +626,7 @@ class CreateContact extends React.Component {
         <ImageComponentArchitecture name = {image_architecture} current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
 
         <TextReference current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
+        <TextSignature current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
       </div>
     );
   }
