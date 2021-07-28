@@ -28,11 +28,79 @@ var width_scale_coeff = 0;
 var height_scale_coeff = 0;
 
 // ******************************* General Material / Big Text / Headers **********************************************
-function DisplayMetrics(props){
+
+function TextTitle(props){
+
+  const text_title_style = {top: (20 * props.current_height / original_page_height) + 'px', 
+                            left:(20 * props.current_width / original_page_width) + 'px',
+                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+
   return (
-      <h1 className = 'display_metrics'> Metrics {props.m1} {props.m2} {props.m3} {props.m4} </h1>
+      <h1 className = 'text_title' style = {text_title_style}> Explainable AI via <br/> Latent Space Regularisation </h1>  
   );
 
+};
+
+function TextLatentValuesLabel(props){
+
+  const text_latent_values_label_style = {top: (720 * props.current_height / original_page_height) + 'px', 
+                                          left:(400 * props.current_width / original_page_width) + 'px',
+                                          font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                                          fontWeight: 'bold',
+                                          }
+
+  return (
+      <h1 className = 'text_latent_values_label' style = {text_latent_values_label_style}> Latent Vector Values: </h1>  
+  );
+
+};
+
+
+function DisplayMetric1(props){
+  const display_metric_1_style = {top: (770 * props.current_height / original_page_height) + 'px', 
+                            left:(400 * props.current_width / original_page_width) + 'px',
+                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+
+  return (
+      <h1 className = 'display_metric1' style = {display_metric_1_style}> Rhy Complx:  {props.m1}</h1>
+  );
+};
+
+function DisplayMetric2(props){
+  const display_metric_2_style = {top: (770 * props.current_height / original_page_height) + 'px', 
+                            left:(700 * props.current_width / original_page_width) + 'px',
+                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+  return (
+      <h1 className = 'display_metric2' style = {display_metric_2_style}> Note Range:  {props.m2}</h1>
+  );
+};
+
+function DisplayMetric3(props){
+  const display_metric_3_style = {top: (770 * props.current_height / original_page_height) + 'px', 
+                            left:(1000 * props.current_width / original_page_width) + 'px',
+                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+  return (
+      <h1 className = 'display_metric3' style = {display_metric_3_style}> Note Density:  {props.m3}</h1>
+  );
+};
+
+function DisplayMetric4(props){
+  const display_metric_4_style = {top: (770 * props.current_height / original_page_height) + 'px', 
+                            left:(1300 * props.current_width / original_page_width) + 'px',
+                            font: (32 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+  return (
+      <h1 className = 'display_metric4' style = {display_metric_4_style}> Avg Pitch Interval:  {props.m4}</h1>
+  );
 };
 
 function TextInput(props){
@@ -71,6 +139,21 @@ function ImageComponentArchitecture(props){
     <div className="image_architecture" style = {image_architecture_style}>
       <img src={props.name} width= {943 * props.current_width / original_page_width} height={264 * props.current_height / original_page_height} />
     </div>
+  );
+
+};
+
+
+function TextReference(props){
+
+  const text_reference_style = {top: (865 * props.current_height / original_page_height) + 'px', 
+                            left:(20 * props.current_width / original_page_width) + 'px',
+                            font: (18 * props.current_width / original_page_width) + 'px Helvetica, Arial',
+                            fontWeight: 'bold',
+                            }
+
+  return (
+      <h1 className = 'text_reference' style = {text_reference_style}> Augmented: Pati, Ashis and Lerch, Alexander. (2019). Latent Space Regularization for Explicit Control of Musical Attributes.  </h1>  
   );
 
 };
@@ -142,7 +225,8 @@ const PositionLabel1 = (props) => {
     <div className="pad1__label">
       <ImageBackground source = {pad_image_1} style={pad1_background_image_style}>
         <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
-        <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
+        <DisplayMetric1 m1 = {metric1} current_height = {props.current_height} current_width = {props.current_width}/>
+        <DisplayMetric2 m2 = {metric2} current_height = {props.current_height} current_width = {props.current_width}/>
         <svg >
           <circle cx={metric1 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} cy={metric2 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
@@ -229,7 +313,8 @@ const PositionLabel2 = (props) => {
     <div className="pad2__label">
       <ImageBackground source = {pad_image_2} style={pad2_background_image_style}>
         <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
-        <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
+        <DisplayMetric3 m3 = {metric3} current_height = {props.current_height} current_width = {props.current_width}/>
+        <DisplayMetric4 m4 = {metric4} current_height = {props.current_height} current_width = {props.current_width}/>
         <svg >
           <circle cx={metric3 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} cy={metric4 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
@@ -492,6 +577,9 @@ class CreateContact extends React.Component {
     return (
       <div>
         {/* <Pad1 /> */}
+        <TextTitle current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
+        <TextLatentValuesLabel current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
+
         <Pad1 current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
         <Pad2 current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
 
@@ -514,6 +602,7 @@ class CreateContact extends React.Component {
 
         <ImageComponentArchitecture name = {image_architecture} current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
 
+        <TextReference current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
       </div>
     );
   }
@@ -531,6 +620,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
