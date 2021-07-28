@@ -1,9 +1,9 @@
 .pad1 {
   position: fixed;
-  top: 350px;
+  /* top: 350px;
   left: 600px;
   width: 300px;
-  height: 300px;
+  height: 300px; */
   padding: 4px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -23,9 +23,9 @@
 
 .pad1_active_indicator {
   position: fixed;
-  top: 300px;
+  /* top: 300px;
   left: 615px;
-  font: 18px/1.5 Helvetica, Arial;
+  font: 18px/1.5 Helvetica, Arial; */
   font-weight: bold;
 }
 
