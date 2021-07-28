@@ -246,8 +246,8 @@ const PositionLabel1 = (props) => {
     metric2 = Math.floor(y / props.current_width * original_page_width);
   };
 
-  const pad1_background_image_style = {height: (289 * props.current_width / original_page_width) + 'px', 
-                                      width:(289 * props.current_width / original_page_width) + 'px',
+  const pad1_background_image_style = {height: (287 * props.current_width / original_page_width) + 'px', 
+                                      width:(287 * props.current_width / original_page_width) + 'px',
                                       }
 
   return (
@@ -271,7 +271,7 @@ function Pad1ActiveIndicator(props){
     var text_color = 'green';
   }
   else{
-    var active_text = 'Click on the Pad to Active: Off';
+    var active_text = 'Click on the Pad to Activate: Off';
     var text_color = 'red';
   }
 
@@ -333,8 +333,8 @@ const PositionLabel2 = (props) => {
     metric4 = Math.floor(y / props.current_width * original_page_width);
   };
 
-  const pad2_background_image_style = {height: (289 * props.current_width / original_page_width) + 'px', 
-                                      width:(289 * props.current_width / original_page_width) + 'px',
+  const pad2_background_image_style = {height: (287 * props.current_width / original_page_width) + 'px', 
+                                      width:(287 * props.current_width / original_page_width) + 'px',
                                       }
 
   return (
@@ -358,7 +358,7 @@ function Pad2ActiveIndicator(props){
     var text_color = 'green';
   }
   else{
-    var active_text = 'Click on the Pad to Active: Off';
+    var active_text = 'Click on the Pad to Activate: Off';
     var text_color = 'red';
   }
 
