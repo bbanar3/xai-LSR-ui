@@ -162,10 +162,50 @@
   left: 500px; */
 }
 
-.display_metrics {
+.text_title {
   position: fixed;
-  top: 0px;
-  left: 0px;
+  /* top: 800px;
+  left: 400px; */
+}
+
+.text_latent_values_label {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+}
+
+.text_reference {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+}
+
+.display_metric1 {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+  color: red;
+}
+
+.display_metric2 {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+  color: rgba(240, 138, 54, 0.726);
+}
+
+.display_metric3 {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+  color: rgb(229, 233, 8);
+}
+
+.display_metric4 {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+  color: rgb(16, 170, 241);
 }
 
 .image_source_music {
