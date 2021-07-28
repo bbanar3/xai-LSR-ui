@@ -92,21 +92,93 @@ class Pads extends React.Component{
 
 // ******************************* Pad 1**********************************************
 
-class Pad1 extends React.Component {
+// class Pad1 extends React.Component {
 
-  render() {
-    return (
-      <ReactCursorPosition className = "pad1"
-       activationInteractionMouse={INTERACTIONS.CLICK}
-      >
-        {/* <ImageComponent /> */}
-        <PositionLabel1 />
-      </ReactCursorPosition>
+//   render() {
+//     return (
+//       <ReactCursorPosition className = "pad1"
+//        activationInteractionMouse={INTERACTIONS.CLICK}
+//       >
+//         {/* <ImageComponent /> */}
+//         <PositionLabel1 />
+//       </ReactCursorPosition>
       
-    );
-  }
-}
+//     );
+//   }
+// }
 
+
+// const PositionLabel1 = (props) => {
+//   const {
+//     detectedEnvironment: {
+//       isMouseDetected = false,
+//       isTouchDetected = false
+//     } = {},
+//     elementDimensions: {
+//       width = 300,
+//       height = 300
+//     } = {},
+//     isActive = false,
+//     isPositionOutside = false,
+//     position: {
+//       x = 0,
+//       y = 0
+//     } = {}
+//   } = props;
+
+//   if(isActive == true){    
+//     metric1 = x;
+//     metric2 = y;
+//   };
+
+//   return (
+//     <div className="pad1__label">
+//       <ImageBackground source = {pad_image_1} style={{width: '100%', height: '194%'}}>
+//         <UpdateGenMedia/>
+//         <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
+//         <svg >
+//           <circle cx={metric1-10} cy={metric2-10} r="10" fill = 'red'/>
+//         </svg>
+//       </ImageBackground>
+//       <Pad1ActiveIndicator isActive = {isActive}/>
+//     </div>
+//   );
+// };
+
+// function Pad1ActiveIndicator(props){
+
+//   if (props.isActive == true){
+//     var active_text = 'On';
+//     var text_color = 'green';
+//   }
+//   else{
+//     var active_text = 'Off';
+//     var text_color = 'red';
+//   }
+
+//   return(
+//   <h1 className = 'pad1_active_indicator' style = {{color: text_color}}> Click on the Pad to Active: {active_text} </h1>
+//   );
+// }
+
+function Pad1(props) {
+
+  const pad1_style = {top: (350 * props.current_height / original_page_height) + 'px', 
+                      left:(600 * props.current_width / original_page_width) + 'px',
+                      width: (300 * props.current_width / original_page_width) + 'px',
+                      height: (300 * props.current_width / original_page_width) + 'px',
+                      }
+
+  return (
+    <ReactCursorPosition className="pad1"
+      activationInteractionMouse={INTERACTIONS.CLICK}
+      style = {pad1_style}
+    >
+      <PositionLabel1 current_height = {props.current_height} current_width = {props.current_width}/>
+      {/* <ImageComponent1 current_height = {props.current_height} current_width = {props.current_width}/> */}
+    </ReactCursorPosition>
+  );
+}
 
 const PositionLabel1 = (props) => {
   const {
@@ -115,8 +187,8 @@ const PositionLabel1 = (props) => {
       isTouchDetected = false
     } = {},
     elementDimensions: {
-      width = 300,
-      height = 300
+      width = 0,
+      height = 0
     } = {},
     isActive = false,
     isPositionOutside = false,
@@ -126,37 +198,30 @@ const PositionLabel1 = (props) => {
     } = {}
   } = props;
 
-  if(isActive == true){    
-    metric1 = x;
-    metric2 = y;
+  if(isActive == true){
+    metric1 = x / props.current_width * original_page_width;
+    metric2 = y / props.current_width * original_page_width;
   };
+
+  const pad1_background_image_style = {height: (289 * props.current_width / original_page_width) + 'px', 
+                                      width:(289 * props.current_width / original_page_width) + 'px',
+                                      }
 
   return (
     <div className="pad1__label">
-      <ImageBackground source = {pad_image_1} style={{width: '100%', height: '194%'}}>
-        <UpdateGenMedia/>
+      <ImageBackground source = {pad_image_1} style={pad1_background_image_style}>
+        <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
         <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
         <svg >
-          <circle cx={metric1-10} cy={metric2-10} r="10" fill = 'red'/>
+          <circle cx={metric1 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} cy={metric2 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
       </ImageBackground>
-      <Pad1ActiveIndicator isActive = {isActive}/>
+      <Pad1ActiveIndicator isActive = {isActive} current_height = {props.current_height} current_width = {props.current_width}/>
     </div>
   );
-};
-
-
-const ImageComponent = (props) => {
-  return (
-    <div className="imageDiv">
-      <img src={pad_image_1} width="290" height="290" />
-    </div>
-  );
-
 };
 
 function Pad1ActiveIndicator(props){
-
   if (props.isActive == true){
     var active_text = 'On';
     var text_color = 'green';
@@ -166,10 +231,19 @@ function Pad1ActiveIndicator(props){
     var text_color = 'red';
   }
 
+  const pad1_active_indicator_style = {top: (300 * props.current_height / original_page_height) + 'px', 
+                                      left:(615 * props.current_width / original_page_width) + 'px',
+                                      font: (18 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
+                                      fontWeight: 'bold',
+                                      color: text_color,
+                                      }
+
   return(
-  <h1 className = 'pad1_active_indicator' style = {{color: text_color}}> Click on the Pad to Active: {active_text} </h1>
+    <h1 className = 'pad1_active_indicator' style = {pad1_active_indicator_style}> Click on the Pad to Active: {active_text} </h1>
   );
 }
+
+
 
 // ******************************* Pad 2 **********************************************
 
@@ -226,21 +300,12 @@ const PositionLabel2 = (props) => {
         <UpdateGenMedia current_height = {props.current_height} current_width = {props.current_width}/>
         <DisplayMetrics m1 = {metric1} m2 = {metric2} m3 = {metric3} m4 = {metric4}/>
         <svg >
-          <circle cx={metric3 - 10 * props.current_width / original_page_width} cy={metric4 - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
+          <circle cx={metric3 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} cy={metric4 * props.current_width / original_page_width - 10 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill = 'red'/>
         </svg>
       </ImageBackground>
       <Pad2ActiveIndicator isActive = {isActive} current_height = {props.current_height} current_width = {props.current_width}/>
     </div>
   );
-};
-
-const ImageComponent2 = (props) => {
-  return (
-    <div className="imageDiv2">
-      <img src={pad_image_1} width="290" height="290" />
-    </div>
-  );
-
 };
 
 function Pad2ActiveIndicator(props){
@@ -270,7 +335,7 @@ function Pad2ActiveIndicator(props){
 // ********************************* Small Helper Texts ********************************************
 
 function X1_label(props) {
-  const x1_label_style = {top: (650 * props.current_height / original_page_height) + 'px', 
+  const x1_label_style = {top: (645 * props.current_height / original_page_height) + 'px', 
                             left:(640 * props.current_width / original_page_width) + 'px',
                             font: (16 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
                             fontWeight: 'bold',
@@ -296,7 +361,7 @@ function Y1_label(props) {
 }
 
 function X2_label(props) {
-  const x2_label_style = {top: (650 * props.current_height / original_page_height) + 'px', 
+  const x2_label_style = {top: (645 * props.current_height / original_page_height) + 'px', 
                             left:(1060 * props.current_width / original_page_width) + 'px',
                             font: (16 * props.current_width / original_page_width) + 'px/1.5 Helvetica, Arial',
                             fontWeight: 'bold',
@@ -493,8 +558,8 @@ class CreateContact extends React.Component {
     return (
       <div>
         {/* <Pad1 /> */}
+        <Pad1 current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
         <Pad2 current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
-
 
         <X1_label current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
         <Y1_label current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
@@ -513,7 +578,7 @@ class CreateContact extends React.Component {
         <TextInput current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
         <TextOutputVariations current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
 
-        <ImageComponentArchitecture name = {image_architecture} current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/>
+        {/* <ImageComponentArchitecture name = {image_architecture} current_height = {this.state.windowHeight} current_width = {this.state.windowWidth}/> */}
 
       </div>
     );
