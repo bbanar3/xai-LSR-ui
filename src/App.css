@@ -166,15 +166,23 @@
   position: fixed;
   /* top: 800px;
   left: 400px; */
+  font-weight: bold;
 }
 
 .text_latent_values_label {
   position: fixed;
   /* top: 800px;
   left: 400px; */
+  font-weight: bold;
 }
 
 .text_reference {
+  position: fixed;
+  /* top: 800px;
+  left: 400px; */
+}
+
+.text_signature {
   position: fixed;
   /* top: 800px;
   left: 400px; */
@@ -225,7 +233,7 @@
   /* top: 200px;
   left: 200px;
   font: 32px Helvetica, Arial; */
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 
 .text_output_variations {
@@ -233,5 +241,5 @@
   /* top: 200px;
   left: 1500px;
   font: 32px Helvetica, Arial; */
-  /* font-weight: bold; */
+  font-weight: bold;
 }
