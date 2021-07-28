@@ -14,7 +14,7 @@ var metric2 = 301;
 var metric3 = 151;
 var metric4 = 151;
 
-var source_pianoroll_file_name = "midi_1_1_5_5.png";
+var source_pianoroll_file_name = "test_midi_original.png";
 var source_mp3_file_name = "test_midi_original.mp3";
 
 
