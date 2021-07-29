@@ -68,7 +68,7 @@ function DisplayMetric1(props){
                             }
 
   var metric1_quantized = Math.floor(metric1 / 30) + 1;
-  var metric1_latent_values = [3,4,5,6,7,8,9,10,11,12];
+  var metric1_latent_values = [-4, -3.1, -2.2, -1.3, -0.4, 0.4, 1.3,  2.2,  3.1,  4];
 
   return (
       <h1 className = 'display_metric1' style = {display_metric_1_style}> Rhy Complx:  {metric1_latent_values[metric1_quantized - 1]}</h1>
@@ -85,7 +85,7 @@ function DisplayMetric2(props){
   var metric2_quantized = Math.floor(metric2 / 30) + 1; 
   
   metric2_quantized = 11 - metric2_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
-  var metric2_latent_values = [3,4,5,6,7,8,9,10,11,12];
+  var metric2_latent_values = [-4, -3.1, -2.2, -1.3, -0.4, 0.4, 1.3,  2.2,  3.1,  4];
 
   return (
       <h1 className = 'display_metric2' style = {display_metric_2_style}> Note Range:  {metric2_latent_values[metric2_quantized - 1]}</h1>
@@ -100,7 +100,7 @@ function DisplayMetric3(props){
                             }
 
   var metric3_quantized = Math.floor(metric3 / 30) + 1; 
-  var metric3_latent_values = [3,4,5,6,7,8,9,10,11,12];
+  var metric3_latent_values = [-4, -3.1, -2.2, -1.3, -0.4, 0.4, 1.3,  2.2,  3.1,  4];
   
   return (
       <h1 className = 'display_metric3' style = {display_metric_3_style}> Note Density:  {metric3_latent_values[metric3_quantized - 1]}</h1>
@@ -119,7 +119,7 @@ function DisplayMetric4(props){
   
   metric4_quantized = 11 - metric4_quantized; //Y axis works in the opposite direction with 10 discrete levels, so 10 -
 
-  var metric4_latent_values = [3,4,5,6,7,8,9,10,11,12];
+  var metric4_latent_values = [-4, -3.1, -2.2, -1.3, -0.4, 0.4, 1.3,  2.2,  3.1,  4];
 
   return (
       <h1 className = 'display_metric4' style = {display_metric_4_style}> Avg Pitch Interval:  {metric4_latent_values[metric4_quantized - 1]}</h1>
