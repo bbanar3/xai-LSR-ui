@@ -604,8 +604,6 @@ function UpdateGenMediaPad1(props){
     <div className = "updateGenMedia1">
       <ImageComponentGeneratedMusic_Pad1 name = {gen_pianoroll_file_name} current_height = {props.current_height} current_width = {props.current_width}/>
       <Audio_Player_Generated_Pad1 name = {gen_mp3_file_name} current_height = {props.current_height} current_width = {props.current_width}/>
-      <h1> {gen_pianoroll_file_name} </h1>
-      <h1> {gen_mp3_file_name} </h1>
     </div>
   );
   
@@ -629,8 +627,6 @@ function UpdateGenMediaPad2(props){
     <div className = "updateGenMedia2">
       <ImageComponentGeneratedMusic_Pad2 name = {gen_pianoroll_file_name} current_height = {props.current_height} current_width = {props.current_width} />
       <Audio_Player_Generated_Pad2 name = {gen_mp3_file_name} current_height = {props.current_height} current_width = {props.current_width} />
-      <h1> {gen_pianoroll_file_name} </h1>
-      <h1> {gen_mp3_file_name} </h1>
     </div>
   );
   
