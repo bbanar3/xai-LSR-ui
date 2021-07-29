@@ -66,7 +66,13 @@
   left: 100px; */
 }
 
-.audio_player_generated {
+.audio_player_generated1 {
+  position: fixed;
+  /* top: 600px;
+  left: 1500px; */
+}
+
+.audio_player_generated2 {
   position: fixed;
   /* top: 600px;
   left: 1500px; */
@@ -222,7 +228,13 @@
   left: -20px; */
 }
 
-.image_generated_music {
+.image_generated_music1 {
+  position: fixed;
+  /* top: 370px;
+  left: 1350px; */
+}
+
+.image_generated_music2 {
   position: fixed;
   /* top: 370px;
   left: 1350px; */
