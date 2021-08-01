@@ -491,7 +491,7 @@ function Pad2_Y1(props) {
 // ************************************** Source Music Pianoroll and Audio Material ****************************************
 
 function ImageComponentSourceMusic(props){
-  const image_source_music_style = {top: (370 * props.current_height / original_page_height) + 'px', 
+  const image_source_music_style = {top: (290 * props.current_height / original_page_height) + 'px', 
                                     left:(-20 * props.current_width / original_page_width) + 'px',
                                     }
 
@@ -521,7 +521,7 @@ function Audio_Player_Source(props){
 
 // ************************************** Generated Music Pianoroll and Audio Material ****************************************
 function ImageComponentGeneratedMusic_Pad1(props){  
-  const image_generated_music1_style = {top: (370 * props.current_height / original_page_height) + 'px', 
+  const image_generated_music1_style = {top: (290 * props.current_height / original_page_height) + 'px', 
                                       left:(1350 * props.current_width / original_page_width) + 'px',
                                       }
 
