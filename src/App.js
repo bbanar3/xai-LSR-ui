@@ -124,7 +124,7 @@ function DisplayMetric4(props){
 
 function TextInput(props){
 
-  const text_input_style = {top: (250 * props.current_height / original_page_height) + 'px', 
+  const text_input_style = {top: (270 * props.current_height / original_page_height) + 'px', 
                             left:(185 * props.current_width / original_page_width) + 'px',
                             fontSize: (32 * props.current_width / original_page_width) + 'px',
                             }
@@ -136,7 +136,7 @@ function TextInput(props){
 
 function TextOutputVariations(props){
 
-  const text_output_style = {top: (250 * props.current_height / original_page_height) + 'px', 
+  const text_output_style = {top: (270 * props.current_height / original_page_height) + 'px', 
                             left:(1400 * props.current_width / original_page_width) + 'px',
                             fontSize: (32 * props.current_width / original_page_width) + 'px',
                             zIndex: '999'
@@ -491,7 +491,7 @@ function Pad2_Y1(props) {
 // ************************************** Source Music Pianoroll and Audio Material ****************************************
 
 function ImageComponentSourceMusic(props){
-  const image_source_music_style = {top: (330 * props.current_height / original_page_height) + 'px', 
+  const image_source_music_style = {top: (360 * props.current_height / original_page_height) + 'px', 
                                     left:(-20 * props.current_width / original_page_width) + 'px',
                                     }
 
@@ -504,7 +504,7 @@ function ImageComponentSourceMusic(props){
 
 function Audio_Player_Source(props){
   var mp3_file_name = props.name;
-  const audio_player_source_style = {top: (640 * props.current_height / original_page_height) + 'px', 
+  const audio_player_source_style = {top: (670 * props.current_height / original_page_height) + 'px', 
                                     left:(55 * props.current_width / original_page_width) + 'px',
                                     width: (400 * props.current_width / original_page_width) + 'px',
                                     height: (50 * props.current_width / original_page_width) + 'px'}
@@ -521,7 +521,7 @@ function Audio_Player_Source(props){
 
 // ************************************** Generated Music Pianoroll and Audio Material ****************************************
 function ImageComponentGeneratedMusic_Pad1(props){  
-  const image_generated_music1_style = {top: (330 * props.current_height / original_page_height) + 'px', 
+  const image_generated_music1_style = {top: (360 * props.current_height / original_page_height) + 'px', 
                                       left:(1350 * props.current_width / original_page_width) + 'px',
                                       }
 
@@ -534,7 +534,7 @@ function ImageComponentGeneratedMusic_Pad1(props){
 
 
 function Audio_Player_Generated_Pad1(props){
-  const audio_player_generated1_style = {top: (640 * props.current_height / original_page_height) + 'px', 
+  const audio_player_generated1_style = {top: (670 * props.current_height / original_page_height) + 'px', 
                                     left:(1430 * props.current_width / original_page_width) + 'px',
                                     width: (400 * props.current_width / original_page_width) + 'px',
                                     height: (50 * props.current_width / original_page_width) + 'px',
