@@ -497,7 +497,7 @@ function ImageComponentSourceMusic(props){
 
   return (
     <div className="image_source_music" style = {image_source_music_style}>
-      <img src={`${process.env.PUBLIC_URL}/pianoroll_files/` + props.name} width={550 * props.current_width / original_page_width} height={192 * props.current_height / original_page_height} />
+      <img src={`${process.env.PUBLIC_URL}/pianoroll_files/` + props.name} width={550 * props.current_width / original_page_width} height={275 * props.current_height / original_page_height} />
     </div>
   );
 };
@@ -527,7 +527,7 @@ function ImageComponentGeneratedMusic_Pad1(props){
 
   return (
     <div className="image_generated_music1" style = {image_generated_music1_style}>
-      <img src={`${process.env.PUBLIC_URL}/pianoroll_files/` + props.name} width={550 * props.current_width / original_page_width} height={192 * props.current_height / original_page_height}/>
+      <img src={`${process.env.PUBLIC_URL}/pianoroll_files/` + props.name} width={550 * props.current_width / original_page_width} height={275 * props.current_height / original_page_height}/>
     </div>
   );
 };
