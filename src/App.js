@@ -417,8 +417,8 @@ class Pads extends React.Component {
   render() {
     return (
       <div>
-        <Pad1 doTheUpdate={this.props.doTheUpdateEvent} current_height={this.props.current_height} current_width={this.props.current_width} />
-        <Pad2 doTheUpdate={this.props.doTheUpdateEvent} current_height={this.props.current_height} current_width={this.props.current_width} />
+        <Pad1 doTheUpdate={this.props.doTheUpdateEvent} current_height={this.props.current_height} current_width={this.props.current_width} pad1_image_name={this.props.pad1_image_name} />
+        <Pad2 doTheUpdate={this.props.doTheUpdateEvent} current_height={this.props.current_height} current_width={this.props.current_width} pad2_image_name={this.props.pad2_image_name} />
       </div>
     );
   }
