@@ -575,7 +575,7 @@ const PositionLabel2 = (props) => {
         <DisplayMetric3 current_height={props.current_height} current_width={props.current_width} />
         <DisplayMetric4 current_height={props.current_height} current_width={props.current_width} />
         <svg height={(287 * props.current_height / original_page_height) + ''} width={(287 * props.current_width / original_page_width) + ''}>
-          <circle cx={(0.1970 + 2.8) / (6) * 287 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={(287 - (-0.94 + 1.5) / (15) * 287) * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={5 * props.current_width / original_page_width} fill='white' />
+          <circle cx={(0.1970 + 2.8) / (6) * 287 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={(287 - (-0.94 + 4.0) / (14) * 287) * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={5 * props.current_width / original_page_width} fill='white' />
           <circle cx={metric3 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={metric4 * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill='red' />
         </svg>
       </ImageBackground>
