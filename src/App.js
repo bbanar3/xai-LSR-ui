@@ -14,10 +14,10 @@ import styled from 'styled-components';
 
 var if_LSR = true;
 
-var metric1 = 151;
-var metric2 = 151;
-var metric3 = 151;
-var metric4 = 151;
+var metric1 = (0.1865 + 5.4) / (12) * 287; //151;
+var metric2 = (287 - (-0.1383 + 6.1) / (11.5) * 287); // 151;
+var metric3 = (0.1970 + 2.8) / (6) * 287; // 151;
+var metric4 = (287 - (-0.94 + 1.5) / (15) * 287); // 151;
 
 var source_pianoroll_file_name = "test_midi_original.png";
 var source_mp3_file_name = "test_midi_original.mp3";
@@ -482,6 +482,7 @@ const PositionLabel1 = (props) => {
         <DisplayMetric1 current_height={props.current_height} current_width={props.current_width} />
         <DisplayMetric2 current_height={props.current_height} current_width={props.current_width} />
         <svg height={(287 * props.current_height / original_page_height) + ''} width={(287 * props.current_width / original_page_width) + ''}>
+          <circle cx={(0.1865 + 5.4) / (12) * 287 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={(287 - (-0.1383 + 6.1) / (11.5) * 287) * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={5 * props.current_width / original_page_width} fill='white' />
           <circle cx={metric1 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={metric2 * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill='red' />
         </svg>
       </ImageBackground>
@@ -574,6 +575,7 @@ const PositionLabel2 = (props) => {
         <DisplayMetric3 current_height={props.current_height} current_width={props.current_width} />
         <DisplayMetric4 current_height={props.current_height} current_width={props.current_width} />
         <svg height={(287 * props.current_height / original_page_height) + ''} width={(287 * props.current_width / original_page_width) + ''}>
+          <circle cx={(0.1970 + 2.8) / (6) * 287 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={(287 - (-0.94 + 1.5) / (15) * 287) * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={5 * props.current_width / original_page_width} fill='white' />
           <circle cx={metric3 * props.current_width / original_page_width - 5 * props.current_width / original_page_width} cy={metric4 * props.current_width / original_page_width - 6 * props.current_width / original_page_width} r={10 * props.current_width / original_page_width} fill='red' />
         </svg>
       </ImageBackground>
