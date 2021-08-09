@@ -17,7 +17,7 @@ var if_LSR = true;
 var metric1 = (0.1865 + 5.4) / (12) * 287; //151;
 var metric2 = (287 - (-0.1383 + 6.1) / (11.5) * 287); // 151;
 var metric3 = (0.1970 + 2.8) / (6) * 287; // 151;
-var metric4 = (287 - (-0.94 + 1.5) / (15) * 287); // 151;
+var metric4 = (287 - (-0.94 + 4.0) / (14) * 287); // 151;
 
 var source_pianoroll_file_name = "test_midi_original.png";
 var source_mp3_file_name = "test_midi_original.mp3";
@@ -742,7 +742,7 @@ function Pad2_Y0(props) {
     fontWeight: 'bold',
   }
   return (
-    <h1 className='pad2_y0' style={pad2_y0_style}>-1.5</h1>
+    <h1 className='pad2_y0' style={pad2_y0_style}>-4.0</h1>
   );
 }
 
@@ -754,7 +754,7 @@ function Pad2_Y1(props) {
     fontWeight: 'bold',
   }
   return (
-    <h1 className='pad2_y1' style={pad2_y1_style}>13.5</h1>
+    <h1 className='pad2_y1' style={pad2_y1_style}>10.0</h1>
   );
 }
 
