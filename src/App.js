@@ -585,6 +585,7 @@ const PositionLabel2 = (props) => {
 };
 
 
+
 function Pad2ActiveIndicator(props) {
   if (props.isActive == true) {
     var active_text = 'Click on the Pad to Freeze: On';
