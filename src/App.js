@@ -392,7 +392,7 @@ function TextReference(props) {
   }
 
   return (
-    <h1 className='text_reference' style={text_reference_style}> Augmentation of Pati, Ashis and Lerch, Alexander. (2019). Latent Space Regularization for Explicit Control of Musical Attributes.  </h1>
+    <h1 className='text_reference' style={text_reference_style}> Augmentation of Ashis Pati and Alexander Lerch's "Latent Space Regularization for Explicit Control of Musical Attributes" (2019) and "Attribute-based Regularization of Latent Spaces for Variational Auto-Encoders" (2020).  </h1>
   );
 };
 
@@ -658,7 +658,7 @@ function Y2_label(props) {
   }
 
   return (
-    <h1 className='y2_label' style={y2_label_style}>Average Pitch Interval Level <br /> Latent Dimension = 3</h1>
+    <h1 className='y2_label' style={y2_label_style}>Average Interval Jump Level <br /> Latent Dimension = 3</h1>
   );
 }
 
