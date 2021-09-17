@@ -385,14 +385,14 @@ function ImageComponentArchitecture(props) {
 function TextReference(props) {
 
   const text_reference_style = {
-    top: (865 * props.current_height / original_page_height) + 'px',
+    top: (825 * props.current_height / original_page_height) + 'px',
     left: (20 * props.current_width / original_page_width) + 'px',
     font: (18 * props.current_width / original_page_width) + 'px Helvetica, Arial',
     fontWeight: 'bold',
   }
 
   return (
-    <h1 className='text_reference' style={text_reference_style}> Augmentation of Ashis Pati and Alexander Lerch's "Latent Space Regularization for Explicit Control of Musical Attributes" (2019) and "Attribute-based Regularization of Latent Spaces for Variational Auto-Encoders" (2020).  </h1>
+    <h1 className='text_reference' style={text_reference_style}> Augmentation of Ashis Pati and Alexander Lerch's "Latent Space Regularization for Explicit Control of Musical Attributes" (2019) and <br /> "Attribute-based Regularization of Latent Spaces for Variational Auto-Encoders" (2020).  </h1>
   );
 };
 
