@@ -337,7 +337,7 @@ function DisplayMetric4(props) {
   }
 
   return (
-    <h1 className='display_metric4' style={display_metric_4_style}> Avg Pitch Interval:  {(metric4_latent_values[metric4_quantized - 1] * scale_coeff).toFixed(1)}</h1>
+    <h1 className='display_metric4' style={display_metric_4_style}> Avg Interval Jump:  {(metric4_latent_values[metric4_quantized - 1] * scale_coeff).toFixed(1)}</h1>
   );
 };
 
